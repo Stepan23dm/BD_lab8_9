@@ -1,0 +1,54 @@
+<h1>{{viewTitle}}</h1>
+
+<h3><a class="btn btn-secondary" href="/articles"><i class="fa fa-arrow-left"></i> Insert articles</a></h3>
+
+<form action="/articles/searchDate" method="get" autocomplete="off"> 
+    <div class="form-row">
+        <div class="form-group">
+            <label>С: </label>
+            <input type="text" class="form-control" name="datename1" placeholder="YYYY-MM-DD">
+        </div>
+        <div class="form-group">
+            <label>По: </label>
+            <input type="text" class="form-control" name="datename2" placeholder="YYYY-MM-DD">
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-search"></i> Search</button>
+    </div>
+</form>
+
+<script src='http://code.jquery.com/jquery-1.7.1.js'></script>
+
+<script>
+    $(function(){
+        $('table td:first-child').each(function (i) {
+                $(this).html(i+1);
+        });
+    });
+</script>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Номер</th>
+            <th>Имя автора</th>
+            <th>Название статьи</th>
+            <th>Краткое содежание статьи</th>
+            <th>Дата публикации</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td></td>
+            <td>{{this.aut_name}}</td>
+            <td>{{this.name_article}}</td>
+            <td>{{this.content}}</td>
+            <td>{{this.pub_date}}</td>
+            <td></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

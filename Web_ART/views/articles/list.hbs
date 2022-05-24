@@ -1,0 +1,40 @@
+<h3><a class="btn btn-secondary" href="/articles"><i class="fa fa-plus"></i> Create New</a> Articles List</h3>
+
+<script src='http://code.jquery.com/jquery-1.7.1.js'></script>
+
+<script>
+    $(function(){
+        $('table td:first-child').each(function (i) {
+                $(this).html(i+1);
+        });
+    });
+</script>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Номер</th>
+            <th>Имя автора</th>
+            <th>Название статьи</th>
+            <th>Краткое содежание статьи</th>
+            <th>Дата публикации</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td></td>
+            <td>{{this.aut_name}}</td>
+            <td>{{this.name_article}}</td>
+            <td>{{this.content}}</td>
+            <td>{{this.pub_date}}</td>
+            <td>
+                <a href="/articles/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/articles/delete/{{this._id}}" onclick="return confirm('Удалить документ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                <a href="/articles/search/{{this._id}}"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

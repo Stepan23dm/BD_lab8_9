@@ -1,0 +1,28 @@
+<h3><a class="btn btn-secondary" href="/articles"><i class="fa fa-plus"></i> Create New</a> Authors List</h3>
+<script src='http://code.jquery.com/jquery-1.7.1.js'></script>
+<script>
+    $(function(){
+        $('table td:first-child').each(function (i) {
+                $(this).html(i+1);
+        });
+    });
+</script>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Номер</th>
+            <th>Имя автора</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td></td>
+            <td>{{this.aut_name}}</td>
+            <td>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

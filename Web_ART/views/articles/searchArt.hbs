@@ -1,0 +1,36 @@
+<h3><a class="btn btn-secondary" href="/articles"><i class="fa fa-arrow-left"></i> Insert articles</a> Articles List</h3>
+
+<form action="/articles/searchArt" method="get" autocomplete="off"> 
+    <div class="form-group">
+        <label>Найти статью</label>
+        <input type="text" class="form-control" name="artname" placeholder="Название">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-search"></i> Search</button>
+    </div>
+</form>>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Имя автора</th>
+            <th>Название статьи</th>
+            <th>Краткое содежание статьи</th>
+            <th>Дата публикации</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.aut_name}}</td>
+            <td>{{this.name_article}}</td>
+            <td>{{this.content}}</td>
+            <td>{{this.pub_date}}</td>
+            <td>
+                
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

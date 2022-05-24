@@ -1,0 +1,35 @@
+<h1>{{viewTitle}}</h1>
+
+<h3><a class="btn btn-secondary" href="/articles/list"><i class="fa fa-arrow-left"></i> View all Articles</a></h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Имя автора</th>
+            <th>Название статьи</th>
+            <th>Краткое содежание</th>
+            <th>Содержание</th>
+            <th>Рецензии</th>
+            <th>Дата публикации</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.aut_name}}</td>
+            <td>{{this.name_article}}</td>
+            <td>{{this.content}}</td>
+            <td>{{this.text}}</td>
+            <td>
+                Имя: {{this.review.0.name}}
+                Комментарий: {{this.review.0.comment}}
+                Оценка: {{this.review.0.grade}}
+            </td>
+            <td>{{this.pub_date}}</td>
+            <td>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
