@@ -3,6 +3,12 @@ const mongoose = require('mongoose');
 var Schema = mongoose.Schema,
     ObjectID = Schema.ObjectID;
 
+var ChildSchema = mongoose.Schema({
+    name: String,
+    comment: String,
+    grade: Number
+})
+    
 var Articles = mongoose.Schema({
     name_article: {
         type: String, 
@@ -25,12 +31,10 @@ var Articles = mongoose.Schema({
         required: 'This field is required.'
     },
     tags: Array,
-    review: {
-        name: String,
-        comment: String,
-        grade: Number
-    }
+    review: [ ChildSchema ]
 },
 {collection: 'Articles'});
+
+var ChildSchema = mongoose.model('ChildSchema', ChildSchema);
 
 var Articles = mongoose.model('Articles', Articles);

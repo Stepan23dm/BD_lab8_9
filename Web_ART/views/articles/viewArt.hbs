@@ -22,9 +22,13 @@
             <td>{{this.content}}</td>
             <td>{{this.text}}</td>
             <td>
-                Имя: {{this.review.0.name}}
-                Комментарий: {{this.review.0.comment}}
-                Оценка: {{this.review.0.grade}}
+                {{#each this.review}}
+                <p>
+                    Имя: {{this.name}}
+                    Комментарий: {{this.comment}}
+                    Оценка: {{this.grade}}
+                </p>
+                {{/each}}
             </td>
             <td>{{this.pub_date}}</td>
             <td>
@@ -33,3 +37,4 @@
         {{/each}}
     </tbody>
 </table>
+
